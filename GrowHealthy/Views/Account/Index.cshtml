@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GrowHealthy.Models.Status>
+  
+@{
+    ViewBag.Title = "Profile";
+}
+
+  @if (Request.IsAuthenticated)
+  {
+  <div >
+    
+        <div class="BodyContent">
+          
+          <div>
+            @Html.ActionLink("Profile","Index","Account") |
+            @Html.ActionLink("Update Status","Status","Account") |
+            @Html.ActionLink("Profile Info","About","Account") | 
+            @Html.ActionLink("Edit Profile", "Edit", new { id = WebSecurity.CurrentUserId}) |
+            @Html.ActionLink("Change Password", "Manage", "Account")
+          </div>
+          
+          @* নিজের আপডেট দেওয়া এবং দেখার কোড এখানে*@          
+          <table>
+            
+            @foreach (var item in Model) {
+            <tr>
+              <td>
+                @Html.DisplayFor(modelItem =>
+                item.Writer)
+              </td>
+              <td>
+                @Html.DisplayFor(modelItem =>
+                item.PublishDate)
+              </td>
+              
+              <td>
+                @Html.DisplayFor(modelItem =>
+                item.Body)
+              </td>
+              
+              <td>
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+              </td>
+            </tr>
+            }
+          </table>
+          
+        </div>
+  </div>
+  }
+  else
+  {
+  <div>
+    Sorry !!! you are not authenticated to view this page !!! please; login to view !!!
+  </div>
+  }

@@ -1,0 +1,115 @@
+﻿@model GrowHealthy.Models.UserProfile
+
+@{
+    ViewBag.Title = "Edit Profile";
+}
+
+<div>
+    @Html.ActionLink("Profile","Index","Account") |
+    @Html.ActionLink("Update Status","Status","Account") |
+    @Html.ActionLink("Profile Info","About","Account") | 
+    @Html.ActionLink("Edit Profile", "Edit", new { id = Model.UserId}) |
+    @Html.ActionLink("Change Password", "Manage", "Account")
+</div>
+<br/>
+<br/> 
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UserProfile</legend>
+
+        @Html.HiddenFor(model => model.UserId)
+        @Html.HiddenFor(model => model.Password)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChildName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChildName)
+            @Html.ValidationMessageFor(model => model.ChildName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FatherName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FatherName)
+            @Html.ValidationMessageFor(model => model.FatherName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MotherName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MotherName)
+            @Html.ValidationMessageFor(model => model.MotherName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Birthday)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Birthday)
+            @Html.ValidationMessageFor(model => model.Birthday)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Contact)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Contact)
+            @Html.ValidationMessageFor(model => model.Contact)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BirthID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BirthID)
+            @Html.ValidationMessageFor(model => model.BirthID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Country)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Country)
+            @Html.ValidationMessageFor(model => model.Country)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+       
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

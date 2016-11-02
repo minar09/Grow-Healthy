@@ -1,0 +1,29 @@
+﻿@model GrowHealthy.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Change Password";
+}
+
+
+ <div>
+    @Html.ActionLink("Profile","Index","Account") |
+    @Html.ActionLink("Update Status","Status","Account") |
+    @Html.ActionLink("Profile Info","About","Account") | 
+    @Html.ActionLink("Edit Profile", "Edit", new { id = WebSecurity.CurrentUserId}) |
+    @Html.ActionLink("Change Password", "Manage", "Account")
+</div>
+
+<p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
+
+@if (ViewBag.HasLocalPassword)
+{
+    @Html.Partial("_ChangePasswordPartial")
+}
+else
+{ 
+    @Html.Partial("_SetPasswordPartial")
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

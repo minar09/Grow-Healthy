@@ -1,0 +1,185 @@
+﻿@model IEnumerable<GrowHealthy.Models.BlogModels>
+  
+  @{
+  ViewBag.Title = "Index";
+  }
+  <style type="text/css">
+    body {
+      background:url(images/bg.jpg) repeat;
+      font-family:Georgia, "Times New Roman", Times, serif;
+      font-size:12px;
+    }
+    #wrap {
+      width:100%;
+      margin:auto;
+    }
+    
+    /*Header*/
+    #headershort {
+      background: url(images/headershort.jpg) no-repeat;
+      height:130px;
+    }
+    #headershort .subheader {
+      font-size:30px;
+      color:#F1E8CB;
+      font-family:Georgia, "Times New Roman", Times, serif;
+      font-weight:normal;
+      display:block;
+      padding:35px 55px 15px 20px;
+    }
+    
+    /* Contents */
+    #contents {
+      font-size:11px;
+    }
+    #contents a:hover {
+      text-decoration:none;
+    }
+    #contents p {
+      color:#666666;
+      line-height:22px;
+    }
+    #contents h2 {
+      color:#8D6932;
+      font-weight:normal;
+    }
+    
+    #left {
+      width:570px;
+      float:left;
+      padding:5px 20px 5px 5px;
+      background:url(images/sidebarbg1.jpg) repeat-y right;
+    }
+    #left h3, #left h4, #left h5 {
+      color:#009999;
+      display:block;
+      padding:5px;
+      margin-bottom:10px;
+      margin-top:10px;
+    }
+    #left h3 {
+      font-size:20px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight:normal;
+    }
+    #left h4 {
+      font-size:18px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight:normal;
+    }
+    #left h5 {
+      font-size:14px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight:normal;
+    }
+    
+    #left h2 {
+      font-size:26px;
+      display:block;
+      border-bottom:solid 1px #ECDEB0;
+      padding:5px;
+    }
+    #left h2 a, #left h2 a:visited, #left h2 a:active{
+      color:#8D6932;
+      text-decoration:none;
+    }
+    #left h2 a:hover {
+      color:#000000;
+    }
+    #left .postmetadata {
+      display:block;
+      background:url(images/metadatabg.jpg) no-repeat;
+      margin:10px 0px 20px 0px;
+      padding:15px 0px 0px 0px;
+      text-align:center;
+    }
+    blockquote {
+      display:block;
+      border-top:dashed 1px #D2B87B;
+      border-bottom:dashed 1px #D2B87B;
+      text-align:center;
+      margin:10px;
+      padding:10px;
+    }
+    blockquote p {
+      font-size:12px;
+    }
+    #left img {
+      background:#FFFFFF;
+      border:solid 1px #cccccc;
+      padding:3px;
+      margin:5px;
+    }
+    #left .alignleft {
+      float:left;
+    }
+    #left .alignright {
+      float:right;
+    }
+    #left .postdata{
+      display:block;
+      padding:3px;
+      text-align:right;
+      color:#999999;
+      margin-bottom:10px;
+    }
+    
+  </style>
+  
+  <div>
+    
+    @* সকল কোড এই ডিভ এর ভিতর থাকবে*@
+    
+    
+    <div id="wrap">
+      <div id="headershort">
+        <h2 class="subheader">
+          Blog
+        </h2>
+      </div>
+      <div id="contents">
+        
+        <p>
+          @Html.ActionLink("Create New Blog", "Create",null, new { style="font-size:1.8em; padding-bottom:15px;"})
+        </p>
+        
+        @foreach (var item in Model){
+        <div id="left">
+          
+          <h2>
+            <a href="#">
+              @Html.DisplayFor(modelItem =>
+              item.Title)
+            </a>
+          </h2>
+          <p class="postdata">
+            Posted on  @Html.DisplayFor(modelItem =>
+            item.PublishDate) by @Html.DisplayFor(modelItem =>
+            item.Writer)
+          </p>
+          
+          <img class="alignright" src="images/1.jpg" alt="Image 3" style="max-width:75px;max-height:75px;" />
+          
+          <p>
+            @Html.DisplayFor(modelItem =>
+            item.Body) 
+          </p>
+          <p class="postmetadata">
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) | @Html.ActionLink("Details", "Details", new { id=item.ID }) | @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+          </p>
+          
+        </div>
+        
+        }
+        
+        <div id="sidebar">
+        </div>
+        
+        <div class="clear">
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  

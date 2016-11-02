@@ -1,0 +1,212 @@
+﻿@model IEnumerable<GrowHealthy.Models.Status>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<style type="text/css">
+    body {
+      background:url(images/bg.jpg) repeat;
+      font-family:Georgia, "Times New Roman", Times, serif;
+      font-size:12px;
+    }
+    #wrap {
+      width:100%;
+      margin:auto;
+    }
+    
+    /*Header*/
+    #headershort {
+      background: url(images/headershort.jpg) no-repeat;
+      height:130px;
+    }
+    #headershort .subheader {
+      font-size:30px;
+      color:#F1E8CB;
+      font-family:Georgia, "Times New Roman", Times, serif;
+      font-weight:normal;
+      display:block;
+      padding:35px 55px 15px 20px;
+    }
+    
+    /* Contents */
+    #contents {
+      font-size:11px;
+    }
+    #contents a:hover {
+      text-decoration:none;
+    }
+    #contents p {
+      color:#666666;
+      line-height:22px;
+    }
+    #contents h2 {
+      color:#8D6932;
+      font-weight:normal;
+    }
+    
+    #left {
+      width:570px;
+      float:left;
+      padding:5px 20px 5px 5px;
+      background:url(images/sidebarbg1.jpg) repeat-y right;
+    }
+    #left h3, #left h4, #left h5 {
+      color:#009999;
+      display:block;
+      padding:5px;
+      margin-bottom:10px;
+      margin-top:10px;
+    }
+    #left h3 {
+      font-size:20px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight:normal;
+    }
+    #left h4 {
+      font-size:18px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight:normal;
+    }
+    #left h5 {
+      font-size:14px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight:normal;
+    }
+    
+    #left h2 {
+      font-size:26px;
+      display:block;
+      border-bottom:solid 1px #ECDEB0;
+      padding:5px;
+    }
+    #left h2 a, #left h2 a:visited, #left h2 a:active{
+      color:#8D6932;
+      text-decoration:none;
+    }
+    #left h2 a:hover {
+      color:#000000;
+    }
+    #left .postmetadata {
+      display:block;
+      background:url(images/metadatabg.jpg) no-repeat;
+      margin:10px 0px 20px 0px;
+      padding:15px 0px 0px 0px;
+      text-align:center;
+    }
+    blockquote {
+      display:block;
+      border-top:dashed 1px #D2B87B;
+      border-bottom:dashed 1px #D2B87B;
+      text-align:center;
+      margin:10px;
+      padding:10px;
+    }
+    blockquote p {
+      font-size:12px;
+    }
+    #left img {
+      background:#FFFFFF;
+      border:solid 1px #cccccc;
+      padding:3px;
+      margin:5px;
+    }
+    #left .alignleft {
+      float:left;
+    }
+    #left .alignright {
+      float:right;
+    }
+    #left .postdata{
+      display:block;
+      padding:3px;
+      text-align:left;
+      color:#999999;
+      margin-bottom:10px;
+      font-size:initial;     
+    }
+    #left .statusbody{
+        font-size:initial;
+        color:#000000;
+    }
+    
+  </style>
+@if (Request.IsAuthenticated) {  
+        @* <div> 
+              সকলের আপডেট এবং ছবি দেখার কোড    
+            <p>
+                @Html.ActionLink("Update Status", "Status", "Account")
+            </p>
+            <table>          
+
+            @foreach (var item in Model) {
+                <tr>      
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Writer)
+                    </td>              
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PublishDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Body)
+                    </td>
+                    
+                </tr>
+            }
+
+            </table>       
+         </div>*@
+    
+    
+    
+   <div id="wrap">
+      <div id="headershort">
+        <h2 class="subheader">
+          Homepage
+        </h2>
+      </div>
+      <div id="contents">
+        
+        <p>
+          @Html.ActionLink("Update Status", "Status", "Account")
+        </p>
+        
+        @foreach (var item in Model){
+        <div id="left">                 
+          <p class="postdata">          
+              @Html.DisplayFor(modelItem=>item.Writer) posted on @Html.DisplayFor(modelItem=>item.PublishDate)
+          </p>                          
+          <p class="statusbody">
+            @Html.DisplayFor(modelItem =>
+            item.Body) 
+          </p>                   
+        </div>
+        
+        }
+        
+        <div id="sidebar">
+        </div>
+        
+        <div class="clear">
+        </div>
+        
+      </div>
+    </div>       
+} 
+else {
+              <div class="BodyContent" style="vertical-align:top; display:inline-block; padding-left:20px;">
+                 <h2 style="font-family:Constantia; font-size:35px">
+                     Welcome to grow healthy !!!!
+                 </h2>
+                  <p style="font-size:20px;font-family:Constantia">
+                      Growhealthy aims to have a better future and a better world by helping to supply information
+                      about proper vaccination at the right time and giving suggestion about food and nutrition for child 
+                      to create a helthy and better future.
+                  </p>
+                  <p style="font-size:20px; font-family:Constantia">
+                      You can access blog and some other information without the need of logging in. You have to register  and log in to get 
+                      to full access of the site. We hope you enjoy your stay at the site, enjoy !!!
+                  </p>               
+              </div>
+}
+

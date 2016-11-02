@@ -1,0 +1,63 @@
+﻿@model GrowHealthy.Models.UserProfile
+
+@{
+    ViewBag.Title = "Profile Info";
+}
+
+<div >
+      
+        <div class="BodyContent">
+            
+            <div>
+               @Html.ActionLink("Profile","Index","Account") |
+               @Html.ActionLink("Update Status","Status","Account") |
+               @Html.ActionLink("Profile Info","About","Account") | 
+               @Html.ActionLink("Edit Profile", "Edit", new { id = Model.UserId}) |
+               @Html.ActionLink("Change Password", "Manage", "Account")
+            </div>
+            <br/>
+            <br/>      
+
+                
+                <fieldset>
+                    <legend>UserProfile</legend>
+
+                    <div class="display-label">
+                            @Html.DisplayNameFor(model => model.ChildName)
+                    </div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.ChildName)
+                    </div>
+
+                    <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Birthday)
+                    </div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.Birthday)
+                    </div>
+
+                    <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Address)
+                    </div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.Address)
+                    </div>
+
+                    <div class="display-label">
+                            @Html.DisplayNameFor(model => model.City)
+                    </div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.City)
+                    </div>
+
+                    <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Country)
+                    </div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.Country)
+                    </div>
+
+                </fieldset>
+
+              </div>
+    </div>

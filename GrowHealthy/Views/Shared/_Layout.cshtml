@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8" />
+    <title style="padding-bottom:100px">
+      @ViewBag.Title - Grow Healthy
+    </title>
+    <link href="~/Images/icon.jpg" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+      
+      #body {
+        
+        height:100%;
+        
+      }
+      #header {
+        
+        background-color:#142030;
+        height:60px;
+        color:#FFF;
+        
+      }
+      #content-wrapper {
+        
+      }
+      #maincontainer {
+        background-color:#ffffef;
+        margin:0 auto;
+        width:78%;
+        
+        height:100%;
+        overflow:hidden;
+        
+      }
+      #pad {
+        
+        background-color:#d3dce0;
+      }
+      #slidercontainer {
+        height:490px;
+        background-color:#ffffef;
+        
+        margin:5px;
+        width:100%;
+        
+        background-size:cover;
+        
+      }
+      img {
+        width:100%;
+        height:100%;
+      }
+      #menu {
+        height:60px;
+        
+        padding-top:37px;
+        padding-left:15%;
+        
+        background-color:#ffffef;
+        
+      }
+      #menubar
+      {
+        list-style-type:none;
+        margin:0;
+        
+        padding:0;
+        overflow:hidden;
+        background-color:#ffffef;
+        
+      }
+      
+      #menubar li
+      {
+        float:left;
+        width:21%;
+        
+      }
+      #menubar li a, #menubar li a:link, #menubar li a:visited
+      {
+        display:block;
+        
+        font-weight:bold;
+        color:#141010;
+        background-color:#ffffef;
+        padding:4px;
+        text-align:center;
+        text-decoration:none;
+        font-family:'Lucida Sans Unicode';
+        font-size:1.4em;
+        
+      }
+      #menubar li a:hover, #menubar li a:active
+      {
+        color:#82CAFF;
+      }
+      
+      #bodymain {
+        width:92%;
+        padding-left:4%;
+        padding-right:3%;
+        padding-top:40px;
+        
+      }
+      #leftmenubar {
+        
+      }
+      #maincontent {
+        
+        height:100%;
+        font-size:larger;
+        background-color:#ffffcf;
+        
+      }
+      
+      #leftmenubar ul{
+        width: 100%;
+        margin:0;
+        padding:0px;
+        border:1px solid #cfe7aa;
+      }
+      #leftmenubar li{
+        display:marker;
+        list-style:none;
+        padding-bottom:5px;
+      }
+      #leftmenubar li a{
+        display:block;
+        font-family:Tahoma, Geneva, sans-serif;
+        font-size:20px;
+        font-weight:bold;
+        color:#141010;
+        text-shadow:#FFF 1px 1px 1px;
+        text-decoration:none;
+        background-color:#d3dce0;
+        padding:7px;
+        border-left:10px solid #141010;
+        height:50px;
+      }
+      #leftmenubar li a:hover{
+        border-left:14px solid #70a9c3;
+        background-color:#ffffff;
+      }
+      #footer {
+        height:40px;
+        background-color:#142030;
+        color:#e0d4d4;
+        text-align:center;
+        padding-top:10px;
+      }
+      
+    </style>
+  </head>
+  
+  
+  <body style="background:url('Images/backimage.jpg'); background-repeat:repeat;">
+    
+    <div id="maincontainer">
+      <div id="pad">
+      </div>
+      
+      <div id="header">
+        
+        <header>
+          <div class="content-wrapper">
+            
+            <section id="login" style="padding-right:58px; padding-left:18px">
+              @Html.Partial("_LoginPartial")
+            </section>
+            
+          </div>
+        </header>
+        
+      </div>
+      <div id="menu">
+        
+        <ul id="menubar">
+          <li>
+            @Html.ActionLink("Blog", "Index", "Blog")
+          </li>
+          <li>
+            @Html.ActionLink("Statistics", "Index", "Statistics")
+          </li>
+          <li>
+            @Html.ActionLink("News", "Index", "News")
+          </li>
+          
+          <li>
+            @Html.ActionLink("Forum", "Index", "Forum")
+          </li>
+        </ul>
+        
+      </div>
+      <div id="slidercontainer">
+        
+        <img src="images/banner3.jpg" />
+        
+      </div>
+      
+      <div id="bodymain">
+        
+        <table>
+          <tr style="width:100%">
+            <td style="width:25%; border-right:double thin; border-color:#d3dce0; vertical-align:top; padding-top:15px;">
+              <div id="leftmenubar">
+                
+                <ul>
+                  <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                  </li>
+                  <li>
+                    @Html.ActionLink("Profile", "Index", "Account")
+                  </li>
+                  <li>
+                    @Html.ActionLink("Doctor's Corner", "Index", "Doctor")
+                  </li>
+                  <li>
+                    @Html.ActionLink("Food Suggestion", "Suggestion", "Food")
+                  </li>
+                </ul>
+              </div>
+            </td>
+            <td style="width:100%; vertical-align:top">
+              @RenderSection("featured", required: false)
+              <section class="content-wrapper main-content clear-fix">
+                @RenderBody()              
+              </section>
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+      <div id="footer">
+        A team inferno production
+      </div>
+      
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+  </body>
+</html>

@@ -1,0 +1,120 @@
+﻿@model GrowHealthy.Models.RegisterModel
+@{
+ViewBag.Title = "Register";
+}
+
+<div>
+  
+  <div class="container" style="margin: 0 auto; float:left; display:inline-block; width:84%;">
+    
+    <div class="BodyContent" style="vertical-align:top; float:left;display:inline-block;width:60%; padding-left:250px">
+      <hgroup class="title">
+        <h2>
+          Create a new account
+        </h2>
+      </hgroup>
+      
+      @using (Html.BeginForm()) {
+      @Html.AntiForgeryToken()
+      @Html.ValidationSummary()
+      
+      <fieldset>
+        <legend>
+          Registration Form
+        </legend>
+        <ol>
+          <li>
+            @Html.LabelFor(m =>
+            m.ChildName)
+            @Html.TextBoxFor(m =>
+            m.ChildName)
+          </li>
+          <li>
+            @Html.LabelFor(m =>
+            m.FatherName)
+            @Html.TextBoxFor(m =>
+            m.FatherName)
+          </li>
+          <li>
+            @Html.LabelFor(m =>
+            m.MotherName)
+            @Html.TextBoxFor(m =>
+            m.MotherName)
+          </li>
+          
+          <li>
+            
+            @Html.LabelFor(m =>
+            m.Birthday)
+            @Html.EditorFor(m =>
+            m.Birthday)
+          </li>
+          
+          <li>
+            @Html.LabelFor(m =>
+            m.Contact)
+            @Html.TextBoxFor(m =>
+            m.Contact)
+          </li>
+          
+          <li>
+            @Html.LabelFor(m =>
+            m.BirthID)
+            @Html.TextBoxFor(m =>
+            m.BirthID)
+          </li>
+          <li>
+            @Html.LabelFor(m =>
+            m.Country)
+            @Html.TextBoxFor(m =>
+            m.Country)
+            @Html.ValidationMessageFor(model =>
+            model.Country)
+          </li>
+          
+          <li>
+            @Html.LabelFor(m =>
+            m.City)
+            @Html.TextBoxFor(m =>
+            m.City)
+          </li>
+          
+          <li>
+            @Html.LabelFor(m =>
+            m.Address)
+            @Html.TextAreaFor(m =>
+            m.Address, new { maxlength = 200 }) 
+            @Html.ValidationMessageFor(m =>
+            m.Address) 
+          </li>
+          
+          <li>
+            @Html.LabelFor(m =>
+            m.UserName)
+            @Html.TextBoxFor(m =>
+            m.UserName)
+          </li>
+          <li>
+            @Html.LabelFor(m =>
+            m.Password)
+            @Html.PasswordFor(m =>
+            m.Password)
+          </li>
+          <li>
+            @Html.LabelFor(m =>
+            m.ConfirmPassword)
+            @Html.PasswordFor(m =>
+            m.ConfirmPassword)
+          </li>
+        </ol>
+        <input type="submit" value="Register" />
+      </fieldset>
+      }
+      
+    </div>
+    
+  </div>
+</div>
+@section Scripts {
+@Scripts.Render("~/bundles/jqueryval")
+}
